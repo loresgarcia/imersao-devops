@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  api:
+    # Constrói a imagem a partir do Dockerfile no diretório atual
+    build: .
+    # Mapeia a porta 8000 do seu computador para a porta 8000 do contêiner
+    ports:
+      - "8001:8000" # Mapeia a porta 8001 do host para a porta 8000 do contêiner
+    # Monta o diretório atual dentro do contêiner no caminho /app
+    # Isso permite que as alterações no código sejam refletidas sem precisar reconstruir a imagem
+    # e também garante que o banco de dados SQLite (escola.db) seja salvo no seu computador.
+    volumes:
+      - .:/app
